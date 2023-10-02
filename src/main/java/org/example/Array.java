@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class Array<T> {
@@ -47,6 +48,15 @@ public class Array<T> {
             sum += imedium.medium(this.array[i]);
         }
         return sum/this.array.length;
+    }
+
+    public void sortArray(Comparator<T> comparator) {
+        Arrays.sort(this.array, comparator);
+    }
+
+    public int binarySearch(T item , Comparator<T> comparator) {
+        int index = Arrays.binarySearch(this.array, item, comparator);
+        return index;
     }
 
     @Override

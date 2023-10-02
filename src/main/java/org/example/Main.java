@@ -15,20 +15,25 @@ public class Main {
         System.out.println("----");
         arr.addItem(scan.nextLine());
 
+        System.out.println("----");
+        arr.addItem(scan.nextLine());
+
+        System.out.println("----");
+        arr.addItem(scan.nextLine());
 
         System.out.println(arr.toString());
 
-        arr.fillArray(new iRandom<String>() {
-            @Override
-            public String random() {
-                int step = (int)(Math.random()*10 + 5);
-                String str = new String();
-                for (int i = 0; i < step; i++) {
-                    str += (char)(Math.random()*26 + 65);
-                }
-                return str;
-            }
-        });
+//        arr.fillArray(new iRandom<String>() {
+//            @Override
+//            public String random() {
+//                int step = (int)(Math.random()*10 + 5);
+//                String str = new String();
+//                for (int i = 0; i < step; i++) {
+//                    str += (char)(Math.random()*26 + 65);
+//                }
+//                return str;
+//            }
+//        });
 
         System.out.println(arr.toString());
 
@@ -62,5 +67,35 @@ public class Main {
         });
 
         System.out.println(medium);
+
+        arr.sortArray(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o2.compareTo(o1);
+            }
+        });
+
+        System.out.println(arr.toString());
+
+        arr.sortArray(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        });
+
+        System.out.println(arr.toString());
+
+        String str = scan.nextLine();
+
+        int index = arr.binarySearch(str, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        });
+
+        System.out.println(index);
+
     }
 }
